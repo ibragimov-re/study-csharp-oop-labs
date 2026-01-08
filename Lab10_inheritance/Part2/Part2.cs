@@ -3,6 +3,7 @@
 class Part2
 {
     private const int organizationsCount = 20;
+    private const int organizationTypesCount = 4;
 
     static void Main()
     {
@@ -13,10 +14,10 @@ class Part2
         {
             PrintMenu();
 
+            Console.Write("Enter a number: ");
             if (!int.TryParse(Console.ReadLine(), out int operationNumber))
             {
-                Console.WriteLine("Unknown option, try again");
-                Console.WriteLine();
+                Console.WriteLine("Unknown option, try again\n");
                 continue;
             }
             Console.WriteLine();
@@ -39,8 +40,7 @@ class Part2
                     return;
 
                 default:
-                    Console.WriteLine("Unknown option, try again");
-                    Console.WriteLine();
+                    Console.WriteLine("Unknown option, try again\n");
                     continue;
             }
             Console.WriteLine("\n");
@@ -53,22 +53,15 @@ class Part2
 
         for (int i = 0; i < orgs.Length; i++)
         {
-            int t = rand.Next(4);
-            switch (t)
+            int typeIndex = rand.Next(organizationTypesCount);
+            orgs[i] = typeIndex switch
             {
-                case 0:
-                    orgs[i] = new InsuranceCompany();
-                    break;
-                case 1:
-                    orgs[i] = new ShipbuildingCompany();
-                    break;
-                case 2:
-                    orgs[i] = new Factory();
-                    break;
-                case 3:
-                    orgs[i] = new Library();
-                    break;
-            }
+                0 => new InsuranceCompany(),
+                1 => new ShipbuildingCompany(),
+                2 => new Factory(),
+                3 => new Library(),
+                _ => throw new InvalidOperationException()
+            };
 
             orgs[i].RandomInit();
         }
@@ -81,7 +74,6 @@ class Part2
         Console.WriteLine("2 - Show shipbuilding companies with more than the specified number of ships (as)");
         Console.WriteLine("3 - Count all organizations and by type (typeof)");
         Console.WriteLine("0 - Exit");
-        Console.Write("Enter a number: ");
     }
 
     // Демонстрация идентификации через is
@@ -96,8 +88,13 @@ class Part2
 
         if (!int.TryParse(Console.ReadLine(), out int typeNumber))
         {
-            Console.WriteLine("Unknown type, try again");
-            Console.WriteLine();
+            Console.WriteLine("Unknown type, try again\n");
+            return;
+        }
+
+        if (typeNumber > organizationTypesCount || typeNumber < 1)
+        {
+            Console.WriteLine("Unknown type, try again\n");
             return;
         }
 
@@ -122,11 +119,9 @@ class Part2
         Console.Write("Enter minimum ship count: ");
         if (!int.TryParse(Console.ReadLine(), out int minCount))
         {
-            Console.WriteLine("Count must be a valid integer");
-            Console.WriteLine();
+            Console.WriteLine("Count must be a valid integer\n");
             return;
         }
-
         Console.WriteLine();
 
         foreach (var org in orgs)
@@ -138,7 +133,7 @@ class Part2
         }
     }
 
-    // Демонстрация идентификации через typeof.
+    // Демонстрация идентификации через typeof
     // проверка строгого типа, без наследников
     static void ShowOrgsCountByType(Organization[] orgs)
     {
