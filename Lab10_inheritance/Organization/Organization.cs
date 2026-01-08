@@ -3,7 +3,7 @@
 namespace OrganizationLib
 {
     // Базовый класс организации
-    public class Organization
+    public class Organization : IInit, IComparable
     {
         // Константы для проверки
         protected const int MinNameLength = 3;
@@ -112,6 +112,17 @@ namespace OrganizationLib
             if (obj is Organization org)
                 return Name == org.Name && EmployeesCount == org.EmployeesCount;
             return false;
+        }
+
+        public int CompareTo(object obj)
+        {
+            var other = obj as Organization;
+
+            if (other == null)
+                throw new ArgumentException("Object is not an Organization");
+
+            // Ordinal - сравнение символов по Unicode кодам
+            return string.Compare(Name, other.Name, StringComparison.Ordinal);
         }
     }
 }
