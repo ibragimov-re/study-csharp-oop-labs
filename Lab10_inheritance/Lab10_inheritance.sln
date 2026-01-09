@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36511.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Organization", "Organization\Organization.csproj", "{8DDA150A-4DD0-4216-9D97-2351F5C148BB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrganizationLib", "Organization\OrganizationLib.csproj", "{8DDA150A-4DD0-4216-9D97-2351F5C148BB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Part1", "Part1\Part1.csproj", "{3D849EC3-796C-4B3B-AC28-34DF51D996BA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Part2", "Part2\Part2.csproj", "{4D5B81C6-1FCB-4860-A6C1-D5097234443C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Part3", "Part3\Part3.csproj", "{77BB951B-656C-4AFB-A63F-546D62C44079}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrganizationLibTest", "OrganizationTests\OrganizationLibTest.csproj", "{A3D0EE37-CFFF-0825-C9B8-D7CFCA436DBF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{77BB951B-656C-4AFB-A63F-546D62C44079}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77BB951B-656C-4AFB-A63F-546D62C44079}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77BB951B-656C-4AFB-A63F-546D62C44079}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3D0EE37-CFFF-0825-C9B8-D7CFCA436DBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3D0EE37-CFFF-0825-C9B8-D7CFCA436DBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3D0EE37-CFFF-0825-C9B8-D7CFCA436DBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3D0EE37-CFFF-0825-C9B8-D7CFCA436DBF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
