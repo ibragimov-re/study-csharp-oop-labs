@@ -49,7 +49,7 @@ class Part2
 
     static void InitializeOrgs(Organization[] orgs)
     {
-        Random rand = new Random();
+        var rand = new Random();
 
         for (int i = 0; i < orgs.Length; i++)
         {

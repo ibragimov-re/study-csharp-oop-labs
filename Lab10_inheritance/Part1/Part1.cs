@@ -5,7 +5,7 @@ class Part1
 {
     static void Main()
     {
-        Random rand = new Random();
+        var rand = new Random();
 
         Organization[] orgs = new Organization[4];
 
