@@ -113,7 +113,7 @@
         }
 
         // ------------- Валидация --------------
-        private void ValidateAllSides(double a, double b, double c)
+        private static void ValidateAllSides(double a, double b, double c)
         {
             ValidateSide(a);
             ValidateSide(b);
