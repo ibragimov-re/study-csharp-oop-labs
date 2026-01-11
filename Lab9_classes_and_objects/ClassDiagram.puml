@@ -1,0 +1,72 @@
+@startuml
+
+' ==============================
+' Класс Triangle
+' ==============================
+class Triangle {
+    -static objectCount: int
+    -A: double
+    -B: double
+    -C: double
+
+    +A: double {readOnly}
+    +B: double {readOnly}
+    +C: double {readOnly}
+    +static ObjectCount: int {readOnly}
+
+    +Triangle(a: double, b: double, c: double)
+    +GetArea(): double
+    +static GetArea(a: double, b: double, c: double): double
+
+    +static CreateRandomTriangle(minSide: int = 1, maxSide: int = 10): Triangle
+
+    +operator ++(): Triangle
+    +operator --(): Triangle
+    +operator <=(t: Triangle): bool
+    +operator >=(t: Triangle): bool
+    +explicit operator double(): double
+    +implicit operator bool(): bool
+
+    -static ValidateAllSides(a: double, b: double, c: double): void
+    -static ValidateSide(side: double): void
+    -static IsTriangleValid(a: double, b: double, c: double): bool
+}
+
+' ==============================
+' Класс TriangleArray
+' ==============================
+class TriangleArray {
+    -arr: Triangle[]
+    +Length: int {readOnly}
+
+    +TriangleArray()
+    +TriangleArray(size: int)
+    +TriangleArray(size: int, triangleFactory: Func<Triangle>)
+
+    +this[index: int]: Triangle {get; set;}
+    +Print(): void
+}
+
+' ==============================
+' Класс UI
+' ==============================
+class UI {
+    +Print(message: string): void
+    +PrintLine(message: string): void
+    +CreateTriangleFromInput(): Triangle
+    +CreateTriangle(a: double, b: double, c: double): Triangle
+    +PrintTriangleSides(triangle: Triangle): void
+    +PrintTriangleArea(area: double): void
+    +PrintObjectCount(count: int): void
+
+    -ReadPositiveDouble(message: string): double
+}
+
+' ==============================
+' Связи
+' ==============================
+TriangleArray --> Triangle
+UI ..> Triangle
+UI ..> TriangleArray
+
+@enduml
