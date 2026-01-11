@@ -41,7 +41,7 @@ namespace Geometry.App
 
         static void RunPart2()
         {
-            UI.PrintLine("Creating sample triangles t1 and t2...\n");
+            UI.PrintLine("Creating sample triangles t1 and t2...");
             var triangle1 = UI.CreateTriangle(3, 4, 5);
             var triangle2 = UI.CreateTriangle(6, 7, 8);
 
