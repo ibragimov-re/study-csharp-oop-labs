@@ -1,4 +1,5 @@
 ﻿using Geometry.Domain;
+using System.Runtime.InteropServices;
 
 namespace Geometry.App
 {
@@ -7,6 +8,11 @@ namespace Geometry.App
         public static void Print(string message)
         {
             Console.Write(message);
+        }
+
+        public static void PrintLine(string message)
+        {
+            Console.WriteLine(message);
         }
 
         public static Triangle CreateTriangleFromInput()
@@ -19,11 +25,7 @@ namespace Geometry.App
                     double b = ReadPositiveDouble("Enter side b: ");
                     double c = ReadPositiveDouble("Enter side c: ");
 
-                    var triangle = new Triangle(a, b, c);
-                    Console.Write($"Created triangle: ");
-                    PrintTriangleSides(triangle);
-
-                    return triangle;
+                    return CreateTriangle(a, b, c);
                 }
                 catch (Exception ex)
                 {
@@ -33,17 +35,18 @@ namespace Geometry.App
             }
         }
 
-        public static Triangle CreateSampleTriangle()
+        public static Triangle CreateTriangle(double a, double b, double c)
         {
-            var triangle = new Triangle(3, 4, 5);
-            Console.Write($"Created sample triangle: ");
+            var triangle = new Triangle(a, b, c);
+            Console.Write($"Created triangle with sides: ");
             PrintTriangleSides(triangle);
+
             return triangle;
         }
 
         public static void PrintTriangleSides(Triangle triangle)
         {
-            Console.WriteLine($"triangle sides: a={triangle.A}, b={triangle.B}, c={triangle.C}");
+            Console.WriteLine($"a={triangle.A}, b={triangle.B}, c={triangle.C}");
         }
 
         public static void PrintTriangleArea(double area)
@@ -73,6 +76,5 @@ namespace Geometry.App
 
             return value;
         }
-
     }
 }
