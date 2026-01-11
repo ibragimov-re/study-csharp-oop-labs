@@ -11,6 +11,9 @@ namespace Geometry.App
 
             UI.PrintLine("\n\n================= LAB9 PART2 =================");
             RunPart2();
+
+            UI.PrintLine("\n\n================= LAB9 PART3 =================");
+            RunPart3();
         }
 
         static void RunPart1()
@@ -76,6 +79,72 @@ namespace Geometry.App
                 UI.PrintLine("t3 exists");
             else
                 UI.PrintLine("t3 does not exist");
+        }
+
+        static void RunPart3()
+        {
+            // ---------- Создание пустого массива и заполнение вручную ----------
+            TriangleArray manualArray = new TriangleArray(2);
+
+            manualArray[0] = new Triangle(3, 4, 5);
+            manualArray[1] = new Triangle(5, 6, 7);
+
+            UI.PrintLine("Array defined manually in code:");
+            manualArray.Print();
+
+            // ---------- Создание массива с случайными треугольниками ----------
+            TriangleArray randomArray = new TriangleArray(5);
+
+            UI.PrintLine("\nRandom triangle array:");
+            randomArray.Print();
+
+            // ---------- Создание массива из ввода пользователя ----------
+            UI.PrintLine("\nCreating triangle array from user input...");
+
+            TriangleArray userArray = new TriangleArray(2, UI.CreateTriangleFromInput);
+
+            UI.PrintLine("User-defined triangle array:");
+            userArray.Print();
+
+            // Вывести общее количество созданных треугольников
+            UI.PrintObjectCount(Triangle.ObjectCount);
+
+            // ---------- Поиск треугольника с минимальной площадью ----------
+            UI.PrintLine("\nSearching index with minimum area in random array...");
+            var indexMinTriangle = FindIndexOfMinArea(randomArray);
+            if (indexMinTriangle == -1)
+                UI.PrintLine("Array is empty");
+            else
+            {
+                UI.PrintLine($"Index of triangle with minimum area: {indexMinTriangle}");
+                var minTriangle = randomArray[indexMinTriangle];
+                UI.Print("Triangle sides: ");
+                UI.PrintTriangleSides(minTriangle);
+                UI.Print("Minimum area: ");
+                UI.PrintTriangleArea((double)minTriangle);
+            }
+        }
+
+        static int FindIndexOfMinArea(TriangleArray array)
+        {
+            int minIndex = -1;
+            double minArea = double.MaxValue;
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                var triangle = array[i];
+                if (triangle == null)
+                    continue;
+
+                double area = (double)triangle;
+                if (area >= 0 && area < minArea)
+                {
+                    minArea = area;
+                    minIndex = i;
+                }
+            }
+
+            return minIndex;
         }
     }
 }

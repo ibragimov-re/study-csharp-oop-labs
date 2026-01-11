@@ -1,5 +1,4 @@
 ﻿using Geometry.Domain;
-using System.Runtime.InteropServices;
 
 namespace Geometry.App
 {

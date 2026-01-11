@@ -29,6 +29,30 @@
 
         // Так как поля A, B, C неизменяемы, то конструктор без параметров не задается
 
+        // Создание существующего треугольника с случайными сторонами в заданном диапазоне
+        // Не самый надежный, но очень простой способ: генерация->валидация->повтор при необходимости
+        // Для упрощения кода ограничимся этим подходом для учебной демонстрации
+        public static Triangle CreateRandomTriangle(int minSide = 1, int maxSide = 10)
+        {
+            if (minSide <= 0 || maxSide <= minSide)
+                throw new ArgumentException("Invalid range for triangle sides");
+
+            const int GenerateAttempts = 500;
+            Random rand = new Random();
+
+            for (int attempt = 0; attempt < GenerateAttempts; attempt++)
+            {
+                int a = rand.Next(minSide, maxSide + 1);
+                int b = rand.Next(minSide, maxSide + 1);
+                int c = rand.Next(minSide, maxSide + 1);
+
+                if (IsTriangleValid(a, b, c))
+                    return new Triangle(a, b, c);
+            }
+
+            throw new InvalidOperationException($"Failed to generate a valid triangle in {GenerateAttempts} attempts");
+        }
+
         // Метод класса для вычисления площади треугольника
         public double GetArea()
         {
