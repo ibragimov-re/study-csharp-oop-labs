@@ -4,7 +4,7 @@ class Program
 {
     static void Main()
     {
-        Console.WriteLine("================= LAB9 TASK38 =================");
+        Console.WriteLine("================= LAB2 TASK38 =================");
 
         int numberOfTerm = InputHelper.ReadPositiveInt("Enter the number of terms n: ");
         int result = CalculateSeriesSum(numberOfTerm);

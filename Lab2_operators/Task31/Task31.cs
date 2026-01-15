@@ -4,7 +4,7 @@ class Program
 {
     static void Main()
     {
-        Console.WriteLine("================= LAB9 TASK31 =================");
+        Console.WriteLine("================= LAB2 TASK31 =================");
 
         int k;
 
