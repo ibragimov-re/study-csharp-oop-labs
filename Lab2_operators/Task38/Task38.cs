@@ -15,8 +15,8 @@ class Program
     static int CalculateSeriesSum(int numberOfTerm)
     {
         int term = 15; // Слагаемое, начинается с 15 по условию задачи
-        int sum = 0; // Счетчик, начиная с первого слагаемого
-        int currentTerm = 1;
+        int sum = 0;
+        int currentTerm = 1; // Счетчик, начиная с первого слагаемого
 
         do
         {
