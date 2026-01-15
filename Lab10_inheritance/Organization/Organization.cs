@@ -76,7 +76,7 @@ namespace OrganizationLib
         // Методы
         // =====================================================================
         // Просмотр свойств объекта. Невиртуальная функция (без переопределения в производных классах)
-        public virtual void ShowNonVirtual()
+        public void ShowNonVirtual()
         {
             Console.WriteLine($"Name: {Name}, employees: {EmployeesCount}");
         }
